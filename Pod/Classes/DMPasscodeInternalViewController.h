@@ -24,5 +24,6 @@
 - (void)reset;
 - (void)setErrorMessage:(NSString *)errorMessage;
 - (void)setInstructions:(NSString *)instructions;
+- (void)hideCloseButton:(BOOL)hide;
 
 @end

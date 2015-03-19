@@ -20,6 +20,7 @@
     UILabel* _instructions;
     UILabel* _error;
     DMPasscodeConfig* _config;
+    BOOL _hideCloseButton;
 }
 
 - (id)initWithDelegate:(id<DMPasscodeInternalViewControllerDelegate>)delegate config:(DMPasscodeConfig *)config {
@@ -37,9 +38,11 @@
     [super viewDidLoad];
     self.view.backgroundColor = _config.backgroundColor;
     self.navigationController.navigationBar.barTintColor = _config.navigationBarBackgroundColor;
-    UIBarButtonItem* closeItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(close:)];
-    closeItem.tintColor = _config.navigationBarForegroundColor;
-    self.navigationItem.leftBarButtonItem = closeItem;
+    if (_hideCloseButton == NO) {
+        UIBarButtonItem* closeItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(close:)];
+        closeItem.tintColor = _config.navigationBarForegroundColor;
+        self.navigationItem.leftBarButtonItem = closeItem;
+    }
     self.navigationController.navigationBar.barStyle = (UIBarStyle)_config.statusBarStyle;
     self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName :_config.navigationBarFont,
                                                                     NSForegroundColorAttributeName: _config.navigationBarTitleColor};
@@ -142,6 +145,10 @@
 
 - (void)setInstructions:(NSString *)instructions {
     _instructions.text = instructions;
+}
+
+- (void)hideCloseButton:(BOOL)hide {
+    _hideCloseButton = hide;
 }
 
 

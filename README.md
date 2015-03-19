@@ -1,5 +1,8 @@
 # DMPasscode
 
+Forked from (https://github.com/D-32/DMPasscode)
+Add new feature: hide the left navigation Bar Item (Close Button)
+
 [![Build Status](https://img.shields.io/travis/D-32/DMPasscode/master.svg?style=flat)](https://travis-ci.org/D-32/DMPasscode)
 [![Version](https://img.shields.io/cocoapods/v/DMPasscode.svg?style=flat)](http://cocoadocs.org/docsets/DMPasscode)
 ![License](https://img.shields.io/cocoapods/l/DMPasscode.svg?style=flat)
